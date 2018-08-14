@@ -24,7 +24,7 @@ const QGenericMatrix<4,2, double> projection4dTo2D(){
 }
 
 const QGenericMatrix<4,3, double> projection4dTo3D(const double scale){
-    double z = 1.0 / (1 - scale);
+    double z = 1.0 / (1.8 - scale);
     const double v[] = {
         z, 0, 0, 0,
         0, z, 0, 0,

@@ -71,7 +71,7 @@ QVector2D Backend::matrixToVector2d(const QGenericMatrix<1, 3, double> &matrix)
 QVector2D Backend::matrixToVector2d(const QGenericMatrix<1, 4, double> &matrix)
 {
     //4d to 3d
-    auto dim3d = projection4dTo3D(matrix.constData()[3]/*/20.0*/) * matrix;
+    auto dim3d = projection4dTo3D(matrix.constData()[3]/200.0) * matrix;
 
     //Static rotation -> "Camera angle"
     dim3d = rotation3dY(0.785) * rotation3dX(0.785) * dim3d;
@@ -92,7 +92,7 @@ QVector3D Backend::matrixToVector3d(const QGenericMatrix<1, 3, double> &matrix)
 
 QVector3D Backend::matrixToVector3d(const QGenericMatrix<1, 4, double> &matrix)
 {
-    auto dim3d = projection4dTo3D(matrix.constData()[3]/200.0) * matrix;
+    auto dim3d = projection4dTo3D(matrix.constData()[3]/1.3) * matrix;
     dim3d = rotation3dY(0.785) * rotation3dX(0.785) * dim3d;
     return QVector3D (static_cast<float>(dim3d.constData()[0]),static_cast<float>(dim3d.constData()[1]),static_cast<float>(dim3d.constData()[2]));
 }
